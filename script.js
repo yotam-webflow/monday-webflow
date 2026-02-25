@@ -42,3 +42,46 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initialize Swiper
   const mySwiper = new Swiper('.wm-feature-carousel', swiperOptions);
 });
+
+/**
+ * Swiper Carousel Configuration
+ * Target: .wm-feature-carousel
+ */
+
+const cards = document.querySelectorAll('.video-testimonial-card');
+
+function fullReset(card) {
+  const video = card.querySelector('video');
+  video.pause();
+  video.currentTime = 0;
+  card.classList.remove('is-active', 'is-playing');
+}
+
+cards.forEach(card => {
+  const video = card.querySelector('video');
+
+  card.addEventListener('click', () => {
+    // If clicking the video while it's playing -> Pause it (keep active)
+    if (card.classList.contains('is-playing')) {
+      video.pause();
+      card.classList.remove('is-playing');
+    } 
+    // If clicking to play
+    else {
+      // Reset all OTHER cards fully (Rule 3)
+      cards.forEach(c => {
+        if (c !== card) fullReset(c);
+      });
+
+      // Start current video
+      video.muted = false;
+      video.play();
+      card.classList.add('is-active', 'is-playing');
+    }
+  });
+
+  // Reset fully when video ends (Rule 1)
+  video.addEventListener('ended', () => {
+    fullReset(card);
+  });
+});
