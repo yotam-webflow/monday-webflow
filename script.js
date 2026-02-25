@@ -35,7 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
       479:  { slidesPerView: 1.5 },
       767:  { slidesPerView: 2 },
       991:  { slidesPerView: 3 },
-      1280: { slidesPerView: 4 }
+      1280: { 
+        slidesPerView: 4,
+        simulateTouch: false
+      }
     }
   };
 
