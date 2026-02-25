@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     centeredSlides: false,
     loop: false,
     lazyPreloadPrevNext: 2,
-    slidesPerView: "auto",
+    slidesPerView: 1,
 
     navigation: {
       nextEl: '.swiper-button-next',
@@ -32,10 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
     },
 
     breakpoints: {
-      479:  { slidesPerView: "auto" },
-      767:  { slidesPerView: "auto" },
-      991:  { slidesPerView: "auto" },
-      1280: { slidesPerView: "auto" }
+      479:  { slidesPerView: 1 },
+      767:  { slidesPerView: 2 },
+      991:  { slidesPerView: 3 },
+      1280: { slidesPerView: 3 }
     }
   };
 
