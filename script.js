@@ -47,8 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /**
- * Swiper Carousel Configuration
- * Target: .wm-feature-carousel
+ Testimonial carousel
  */
 
 const cards = document.querySelectorAll('.video-testimonial-card');
