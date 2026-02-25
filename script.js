@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       767:  { slidesPerView: 2 },
       991:  { slidesPerView: 3 },
       1280: { 
-        slidesPerView: 4,
+        slidesPerView: 3,
         simulateTouch: false
       }
     }
