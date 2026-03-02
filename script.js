@@ -87,3 +87,27 @@ cards.forEach(card => {
     fullReset(card);
   });
 });
+
+
+function handleClick(selector, activeClass, toggle = false) {
+    const elements = document.querySelectorAll(selector);
+    
+    elements.forEach(function(element) {
+        element.addEventListener('mouseenter', function() {
+            elements.forEach(function(otherElement) {
+                if (otherElement !== element) {
+                    otherElement.classList.remove(activeClass);
+                }
+            });
+            if (toggle) {
+                element.classList.toggle(activeClass);
+            } else {
+                element.classList.add(activeClass);
+            }
+        });
+    });
+}
+
+// Initialize handlers for different selectors
+handleClick('.hor-flip-front', 'is-open');
+// Enable toggle for this group
