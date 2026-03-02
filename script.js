@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     centeredSlides: false,
     loop: false,
     lazyPreloadPrevNext: 2,
-    slidesPerView: 1,
+    slidesPerView: 1.2,
 
     navigation: {
       nextEl: '.swiper-button-next',
