@@ -6,7 +6,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const swiperOptions = {
     speed: 600,
-    spaceBetween: 24,
+    spaceBetween: 32,
     centeredSlides: false,
     loop: false,
     lazyPreloadPrevNext: 2,
