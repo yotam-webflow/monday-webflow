@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
 
     breakpoints: {
-      479:  { slidesPerView: 1.5 },
+      479:  { slidesPerView: 1.5, spaceBetween: 16},
       767:  { slidesPerView: 2 },
       991:  { slidesPerView: 3 },
       1280: { 
