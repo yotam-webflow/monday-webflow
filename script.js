@@ -6,7 +6,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const swiperOptions = {
     speed: 600,
-    spaceBetween: 32,
+    spaceBetween: 16,
     centeredSlides: false,
     loop: false,
     lazyPreloadPrevNext: 2,
@@ -32,11 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
     },
 
     breakpoints: {
-      479:  { slidesPerView: 1.5, spaceBetween: 16},
+      479:  { slidesPerView: 1.5},
       767:  { slidesPerView: 2 },
       991:  { slidesPerView: 3 },
       1280: { 
         slidesPerView: 3,
+        spaceBetween: 32,
         simulateTouch: false
       }
     }
