@@ -62,27 +62,35 @@ function fullReset(card) {
 cards.forEach(card => {
   const video = card.querySelector('video');
 
+  // Ensure it's at 0 as soon as the browser knows about the video
+  video.addEventListener('loadedmetadata', () => {
+    video.currentTime = 0;
+  });
+
   card.addEventListener('click', () => {
-    // If clicking the video while it's playing -> Pause it (keep active)
     if (card.classList.contains('is-playing')) {
       video.pause();
       card.classList.remove('is-playing');
-    } 
-    // If clicking to play
-    else {
-      // Reset all OTHER cards fully (Rule 3)
+    } else {
       cards.forEach(c => {
         if (c !== card) fullReset(c);
       });
 
-      // Start current video
       video.muted = false;
-      video.play();
+      
+      // Force reset to start just in case it was paused midway previously
+      video.currentTime = 0; 
+      
+      // play() returns a promise; it's good practice to catch errors 
+      // (like if the browser blocks autoplay)
+      video.play().catch(error => {
+        console.error("Playback failed:", error);
+      });
+
       card.classList.add('is-active', 'is-playing');
     }
   });
 
-  // Reset fully when video ends (Rule 1)
   video.addEventListener('ended', () => {
     fullReset(card);
   });
