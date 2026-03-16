@@ -97,16 +97,6 @@ cards.forEach(card => {
   });
 });
 
-/* Table shadow - start */
-
-const thead = document.querySelector('thead');
-const theadOffsetTop = thead.offsetTop;
-
-window.addEventListener('scroll', () => {
-  thead.classList.toggle('is-stuck', window.scrollY >= theadOffsetTop - 74);
-});
-
-/* Table shadow - end */
 
 function handleClick(selector, activeClass, toggle = false) {
     const elements = document.querySelectorAll(selector);
