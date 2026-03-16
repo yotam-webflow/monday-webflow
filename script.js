@@ -102,7 +102,8 @@ cards.forEach(card => {
 const thead = document.querySelector('thead');
 
 window.addEventListener('scroll', () => {
-  thead.classList.toggle('is-stuck', window.scrollY > 0);
+  const theadTop = thead.getBoundingClientRect().top;
+  thead.classList.toggle('is-stuck', theadTop <= 74);
 });
 
 /* Table shadow - end */
