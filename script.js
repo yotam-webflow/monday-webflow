@@ -99,11 +99,10 @@ cards.forEach(card => {
 
 /* Table shadow - start */
 
-const wrapper = document.querySelector('.cu-table parent');
-const thead = wrapper.querySelector('thead');
+const thead = document.querySelector('thead');
 
-wrapper.addEventListener('scroll', () => {
-  thead.classList.toggle('is-stuck', wrapper.scrollTop > 0);
+window.addEventListener('scroll', () => {
+  thead.classList.toggle('is-stuck', window.scrollY > 0);
 });
 
 /* Table shadow - end */
