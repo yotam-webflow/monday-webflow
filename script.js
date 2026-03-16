@@ -100,10 +100,10 @@ cards.forEach(card => {
 /* Table shadow - start */
 
 const thead = document.querySelector('thead');
+const theadOffsetTop = thead.offsetTop;
 
 window.addEventListener('scroll', () => {
-  const theadTop = thead.getBoundingClientRect().top;
-  thead.classList.toggle('is-stuck', theadTop <= 74);
+  thead.classList.toggle('is-stuck', window.scrollY >= theadOffsetTop - 74);
 });
 
 /* Table shadow - end */
