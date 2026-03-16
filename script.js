@@ -97,6 +97,16 @@ cards.forEach(card => {
   });
 });
 
+/* Table shadow - start */
+
+const wrapper = document.querySelector('.cu-table parent');
+const thead = wrapper.querySelector('thead');
+
+wrapper.addEventListener('scroll', () => {
+  thead.classList.toggle('is-stuck', wrapper.scrollTop > 0);
+});
+
+/* Table shadow - end */
 
 function handleClick(selector, activeClass, toggle = false) {
     const elements = document.querySelectorAll(selector);
