@@ -58,10 +58,12 @@ function fullReset(card) {
   video.pause();
   video.currentTime = 0;
   card.classList.remove('is-active', 'is-playing');
+  card.dataset.fresh = 'true'; // Mark as fresh after reset
 }
 
 cards.forEach(card => {
   const video = card.querySelector('video');
+  card.dataset.fresh = 'true'; // Fresh on first load
 
   video.addEventListener('loadedmetadata', () => {
     video.currentTime = 0;
@@ -78,6 +80,12 @@ cards.forEach(card => {
 
       video.muted = false;
 
+      // Only reset to 0 on first/fresh play, not on resume
+      if (card.dataset.fresh === 'true') {
+        video.currentTime = 0;
+        card.dataset.fresh = 'false';
+      }
+
       video.play().catch(error => {
         console.error("Playback failed:", error);
       });
@@ -87,7 +95,7 @@ cards.forEach(card => {
   });
 
   video.addEventListener('ended', () => {
-    fullReset(card);
+    fullReset(card); // This sets fresh = true again
   });
 });
 
