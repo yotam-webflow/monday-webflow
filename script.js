@@ -63,7 +63,6 @@ function fullReset(card) {
 cards.forEach(card => {
   const video = card.querySelector('video');
 
-  // Ensure it's at 0 as soon as the browser knows about the video
   video.addEventListener('loadedmetadata', () => {
     video.currentTime = 0;
   });
@@ -78,12 +77,7 @@ cards.forEach(card => {
       });
 
       video.muted = false;
-      
-      // Force reset to start just in case it was paused midway previously
-      video.currentTime = 0; 
-      
-      // play() returns a promise; it's good practice to catch errors 
-      // (like if the browser blocks autoplay)
+
       video.play().catch(error => {
         console.error("Playback failed:", error);
       });
