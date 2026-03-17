@@ -121,37 +121,4 @@ function handleClick(selector, activeClass, toggle = false) {
 handleClick('.hor-flip-front', 'is-open');
 // Enable toggle for this group
 
-function handleClick(selector, activeClass, toggle = false) {
-    const elements = document.querySelectorAll(selector);
-    elements.forEach(function(element) {
-        element.addEventListener('click', function() {
-            // Close all other elements
-            elements.forEach(function(otherElement) {
-                if (otherElement !== element) {
-                    otherElement.classList.remove(activeClass);
-                    const otherContent = otherElement.querySelector('.accordion-comp-body');
-                    if (otherContent) {
-                        otherContent.style.maxHeight = '0px';
-                    }
-                }
-            });
-            if (toggle) {
-                element.classList.toggle(activeClass);
-            } else {
-                element.classList.add(activeClass);
-            }
-            // Expand or collapse the .accordion-comp-body inside the clicked element
-            const content = element.querySelector('.accordion-comp-body');
-            if (content) {
-                if (element.classList.contains(activeClass)) {
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                } else {
-                    content.style.maxHeight = '0px';
-                }
-            }
-        });
-    });
-}
-// Initialize handlers for different selectors
-handleClick('.accordion-item', 'is-open');
-handleClick('.is-three', 'is-open', true);
+
